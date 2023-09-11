@@ -100,3 +100,25 @@ Section::make()
 ```
 
 In this example, the grid has 3 columns on small devices, 6 columns on extra large devices, and 8 columns on extra extra large devices. The text input will start at column 2 on small devices, column 3 on extra large devices, and column 4 on extra extra large devices. This is essentially producing a layout whereby the text input always starts halfway through the grid, regardless of how many columns the grid has.
+
+
+## Using grid in schema 
+
+You may want to build grids within a form's schema, for example in a custom livewire component where we use getFormSchema() or a sub grid within a repeater type field. To do this you can use the Grid field for example:
+
+```php
+TextInput::make('name'),
+TextInput::make('alias'),
+```
+
+would become:
+
+```php
+use Filament\Forms\Components\Grid;
+
+Grid::make(2)
+    ->schema([
+        TextInput::make('name'),
+        TextInput::make('alias'),
+    ]),
+```
