@@ -352,6 +352,11 @@ class FilamentManager
         return $this->tenant;
     }
 
+    public function getTenantUrl(Model $tenant): string
+    {
+        return url(filament()->getCurrentPanel()->getPath().'/'.$tenant->getAttributeValue('id'));
+    }
+
     public function getTenantAvatarUrl(Model $tenant): string
     {
         $avatar = null;
