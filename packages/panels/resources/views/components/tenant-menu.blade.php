@@ -140,7 +140,7 @@
         <x-filament::dropdown.list>
             @foreach ($tenants as $tenant)
                 <x-filament::dropdown.list.item
-                    :href="filament()->getUrl($tenant)"
+                    :href="filament()->getTenantUrl($tenant)"
                     :image="filament()->getTenantAvatarUrl($tenant)"
                     tag="a"
                 >
